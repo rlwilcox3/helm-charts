@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  namespace: {{ template "todo.fullname" . }}-todo
+  name: postgres-data-pvc
+spec:
+ #comment out so that default dynamic storage provisioning is used instead 
+ #storageClassName: manual
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
